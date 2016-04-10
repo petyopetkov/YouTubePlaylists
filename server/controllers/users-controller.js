@@ -1,7 +1,6 @@
-var encryption = require('../utilities/encryption');
-var users = require('../data/users');
-
-var CONTROLLER_NAME = 'users';
+var encryption = require('../utilities/encryption'),
+    users = require('../data/users'),
+    CONTROLLER_NAME = 'users';
 
 module.exports = {
     getRegister: function (req, res, next) {
