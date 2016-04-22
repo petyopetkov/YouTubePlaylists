@@ -34,5 +34,8 @@ module.exports = {
     },
     getLogin: function (req, res, next) {
         res.render(CONTROLLER_NAME + '/login');
+    },
+    getProfile: function (req, res, next) {
+        res.render(CONTROLLER_NAME + '/profile', {currentUser: req.user})
     }
 };

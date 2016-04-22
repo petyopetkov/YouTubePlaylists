@@ -4,14 +4,37 @@ block main-content
         form(method='post' class="form-horizontal")
             fieldset
                 legend Register user
-                .form-group
-                    label(for="username" class="control-label") Username
-                    input(id="username" class="form-control" type="text" name="username" placeholder="Username")
-                .form-group
-                    label(for="password" class="control-label") Password
-                    input(id="password" class="form-control" type="password" name="password" placeholder="Password")
-                .form-group
-                    label(for="confirmPassword" class="control-label") Confirm password
-                    input(id="confirmPassword" class="form-control" type="password" name="confirmPassword" placeholder="Confirm password")
-                .form-group
-                    input(type="submit" class="btn btn-primary" value="Register")
+                .row
+                    .col-md-4
+                        .form-group
+                            label(for="username" class="control-label") Username
+                            input(id="username" class="form-control" type="text" name="username" placeholder="Username")
+                        .form-group
+                            label(for="password" class="control-label") Password
+                            input(id="password" class="form-control" type="password" name="password" placeholder="Password")
+                        .form-group
+                            label(for="confirmPassword" class="control-label") Confirm password
+                            input(id="confirmPassword" class="form-control" type="password" name="confirmPassword" placeholder="Confirm password")
+                        .form-group
+                            label(for="firstName" class="control-label") First Name
+                            input(id="firstName" class="form-control" type="text" name="firstName" placeholder="First Name")
+                        .form-group
+                            label(for="lastName" class="control-label") Last Name
+                            input(id="lastName" class="form-control" type="text" name="lastName" placeholder="Last Name")
+                    .col-md-4.col-md-offset-2
+                        .form-group
+                            label(for="email" class="control-label") Email
+                            input(id="email" class="form-control" type="email" name="email" placeholder="Email")
+                        .form-group
+                            label(for="image" class="control-label") Image
+                            input(id="image" class="form-control" type="text" name="image" placeholder="Image")
+                        .form-group
+                            label(for="faceBookLink" class="control-label") Facebook Link
+                            input(id="faceBookLink" class="form-control" type="text" name="faceBookLink" placeholder="Facebook Link")
+                        .form-group
+                            label(for="youTubeLink" class="control-label") YouTube Link
+                            input(id="youTubeLink" class="form-control" type="text" name="youTubeLink" placeholder="YouTube Link")
+                .row
+                    .col-md-7.col-md-offset-5
+                        .form-group
+                            input(type="submit" class="btn btn-primary" value="Register")
