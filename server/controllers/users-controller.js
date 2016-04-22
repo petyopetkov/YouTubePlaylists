@@ -35,7 +35,14 @@ module.exports = {
     getLogin: function (req, res, next) {
         res.render(CONTROLLER_NAME + '/login');
     },
-    getProfile: function (req, res, next) {
+    getProfile: function (req, res) {
         res.render(CONTROLLER_NAME + '/profile', {currentUser: req.user})
+    },
+    postProfile: function (req, res) {
+        var userData = req.body;
+
+        users.updateProfile({_id: req.user._id}, userData, function () {
+            res.redirect('/');
+        })
     }
 };

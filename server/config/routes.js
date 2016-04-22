@@ -11,6 +11,7 @@ module.exports = function(app) {
     app.get('/logout', auth.logout);
 
     app.get('/profile', auth.isAuthenticated, controllers.users.getProfile);
+    app.post('/profile', auth.isAuthenticated, controllers.users.postProfile);
 
     app.get('/', function (req, res) {
        res.render('index', {currentUser: req.user});
