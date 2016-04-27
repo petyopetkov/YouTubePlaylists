@@ -15,7 +15,7 @@ module.exports.init = function () {
         category: {type: String, required: requiredMessage},
         creator: {type: String, required: requiredMessage},
         creationDate: {type: Date, required: requiredMessage, default: new Date()},
-        isPublic: {type: Boolean, required: requiredMessage},
+        isPrivate: {type: Boolean, required: requiredMessage},
         ratings: {type: [Number], min: 0, default: 0},
         visibleToUsers: {type: [String]},
         comments:{type: [commentSchema]}
@@ -23,4 +23,51 @@ module.exports.init = function () {
 
     var Playlist = mongoose.model('Playlist', playlistSchema),
         Comment = mongoose.model('Comment', commentSchema);
+
+    Playlist.find({}).exec(function (err, collection) {
+        if (err) {
+            console.log('Can not find playlists:' + err);
+            return;
+        }
+
+        if (collection.length === 0) {
+            Playlist.create({
+                title: 'Test 1',
+                description: 'Description',
+                videos: ['https://www.youtube.com/watch?v=Da4DL5-9JOI'],
+                category: 'Rock',
+                creator: 'Pesho',
+                creationDate: new Date(),
+                isPrivate: false,
+                ratings: [1]
+            },{
+                title: 'Test 2',
+                description: 'Description',
+                videos: ['https://www.youtube.com/watch?v=Da4DL5-9JOI'],
+                category: 'Rock',
+                creator: 'Ivan',
+                creationDate: new Date(),
+                isPrivate: false,
+                ratings: [1]
+            },{
+                title: 'Test 3',
+                description: 'Description',
+                videos: ['https://www.youtube.com/watch?v=Da4DL5-9JOI'],
+                category: 'Rock',
+                creator: 'Gosho',
+                creationDate: new Date(),
+                isPrivate: false,
+                rating: [1]
+            },{
+                title: 'Test 4',
+                description: 'Description',
+                videos: ['https://www.youtube.com/watch?v=Da4DL5-9JOI'],
+                category: 'Rock',
+                creator: 'Stamat',
+                creationDate: new Date(),
+                isPrivate: false,
+                rating: [1]
+            });
+        }
+    });
 };

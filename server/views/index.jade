@@ -1,4 +1,13 @@
 extends shared/layout
 block main-content
     h1.text-center Welcome to my Site
+    .row
+        each item in data.playlists
+            .col-md-6
+                .panel.panel-info
+                    .panel-heading.text-center
+                        a(href="/playlists/details/" + item.id)= item.title
+                    .panel-body.text-center
+                        p Creator: #{item.creator}
+                        p Category: #{item.category}
 

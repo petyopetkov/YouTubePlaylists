@@ -41,7 +41,11 @@ module.exports = {
     postProfile: function (req, res) {
         var userData = req.body;
 
-        users.updateProfile({_id: req.user._id}, userData, function () {
+        users.updateProfile({_id: req.user._id}, userData, function (err, user) {
+            if (err) {
+                req.session.error = 'Could not update user profile';
+            }
+
             res.redirect('/');
         })
     }

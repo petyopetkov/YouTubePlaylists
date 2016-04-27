@@ -13,11 +13,11 @@ module.exports = function(app) {
     app.get('/profile', auth.isAuthenticated, controllers.users.getProfile);
     app.post('/profile', auth.isAuthenticated, controllers.users.postProfile);
 
-    app.get('/', function (req, res) {
-       res.render('index', {currentUser: req.user});
-    });
+    app.get('/', controllers.playlists.getTopPublic);
+
+    app.get('/playlists', controllers.playlists.getAll);
 
     app.get('*', function(req, res) {
-        res.render('index', {currentUser: req.user});
+        res.render('error', {currentUser: req.user});
     });
 };

@@ -1,0 +1,33 @@
+extends  ../shared/layout
+
+block main-content
+    h2.text-center Playlists
+    if (currentUser)
+        .row
+            .col-md-2.col-md-offset-10
+                a(href="/playlists/create" class="btn-btn-primary") Add Palylists
+
+    br
+    if (data.playlists.length === 0)
+        h3.text-center No Playlists
+    else
+        table.table.table-striped.table-hover
+            thead
+                tr
+                    th Title
+                    th Category
+                    th Creator
+            tbody
+                each item in data.playlists
+                    tr
+                        td
+                            a(href="/playlists/details/" + item.id)= item.title
+                        td #{item.category}
+                        td #{item.creator}
+        .row
+            ul.list-unstyled.list-inline.text-center
+                - for(var i = 1; i <= Math.ceil(data.total / data.pageSize); i++)
+                    li
+                        a.btn.btn-lf.btn-primary(href="/playlists?page=#{i}&pageSize=#{data.pageSize}") #{i}
+
+
